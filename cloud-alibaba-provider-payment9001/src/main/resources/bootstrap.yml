@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.118:8888
+    sentinel:
+      transport:
+        dashboard: http://192.168.0.118:8080
+        port: 8719
+        clientIp: 192.168.0.102
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

@@ -1,0 +1,25 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: payment_routh
+          uri: lb://nacos-provider-payment
+          predicates:
+            - Path=/payment/**
+    nacos:
+      discovery:
+        server-addr: 192.168.0.119:8888
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
